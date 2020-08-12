@@ -27,6 +27,7 @@
     "eslint-plugin-react": "^7.20.4",
     "eslint-plugin-react-hooks": "^4.0.8",
     "husky": "^4.2.5",
+    "isomorphic-unfetch": "^3.0.0",
     "lint-staged": "^10.2.11",
     "next": "9.5.2",
     "pattern.css": "^1.0.0",

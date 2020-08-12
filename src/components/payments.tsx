@@ -3,7 +3,7 @@ import { faCheck } from '@fortawesome/pro-light-svg-icons';
 import { faCreditCard, faMoneyCheck } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { formatPrice } from './utils';
+import { formatPrice } from '../utils';
 
 interface PaymentsProps {
   price?: number;
