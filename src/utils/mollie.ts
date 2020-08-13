@@ -11,7 +11,7 @@ export const initPayment = async (price: number, subject: string) => {
       value: price.toFixed(2),
     },
     description: subject,
-    redirectUrl: 'http://localhost:3000/paid',
+    redirectUrl: 'https://zahldag.egt.community/paid',
   });
   return payment._links.checkout.href;
 };
