@@ -7,9 +7,10 @@ import { Sepa } from './sepa';
 interface PaymentsProps {
   price?: number;
   subject: string;
+  error?: string;
 }
 
-export const Payments: FC<PaymentsProps> = ({ price, subject }) => {
+export const Payments: FC<PaymentsProps> = ({ price, subject, error }) => {
   return (
     <div className="bg-gray-900">
       <div className="pt-12 px-4 sm:px-6 lg:px-8 lg:pt-20">
@@ -28,9 +29,17 @@ export const Payments: FC<PaymentsProps> = ({ price, subject }) => {
           <div className="absolute inset-0 h-5/6 bg-gray-900 lg:h-2/3" />
           <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="relative lg:grid lg:grid-cols-12">
-              <CreditCard price={price} subject={subject} />
-              <Sepa price={price} subject={subject} />
-              <PayPal price={price} subject={subject} />
+              {error ? (
+                <div className="text-xl text-center text-red-500 mx-auto max-w-md mb-15 lg:col-span-12">
+                  {error}
+                </div>
+              ) : (
+                <>
+                  <CreditCard price={price} subject={subject} />
+                  <Sepa price={price} subject={subject} />
+                  <PayPal price={price} subject={subject} />
+                </>
+              )}
             </div>
           </div>
         </div>
