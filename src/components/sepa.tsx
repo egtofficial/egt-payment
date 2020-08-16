@@ -7,7 +7,7 @@ import { CheckIcon } from './CheckIcon';
 
 export const Sepa: FC<PaymentMethodProps> = ({ price, subject }) => {
   return (
-    <div className="mt-10 max-w-lg mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-4">
+    <div className="mt-10 max-w-lg mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-3">
       <div className="relative z-10 rounded-lg shadow-xl">
         <div className="pointer-events-none absolute inset-0 rounded-lg border-2 border-teal-800" />
         <div className="absolute inset-x-0 top-0 transform translate-y-px">
@@ -44,13 +44,13 @@ export const Sepa: FC<PaymentMethodProps> = ({ price, subject }) => {
           <ul>
             <li className="flex items-start">
               <CheckIcon />
-              <p className="ml-3 text-base leading-6 font-medium text-gray-500">
+              <p className="ml-3 text-sm leading-6 font-medium text-gray-500">
                 Wir erhalten den vollen Betrag
               </p>
             </li>
             <li className="mt-4 flex items-start">
               <CheckIcon />
-              <p className="ml-3 text-base leading-6 font-medium text-gray-500">
+              <p className="ml-3 text-sm leading-6 font-medium text-gray-500">
                 1-2 Werktage
               </p>
             </li>
@@ -68,7 +68,7 @@ export const Sepa: FC<PaymentMethodProps> = ({ price, subject }) => {
               <br />
               SOLADES1TUB
             </p>
-            <p className="text-md mt-4 text-gray-900">
+            <p className="text-sm mt-4 text-gray-900">
               <strong>Betreff:</strong> {subject}
             </p>
           </div>

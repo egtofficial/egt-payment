@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { Bitcoin } from './bitcoin';
 import { CreditCard } from './creditCard';
 import { PayPal } from './paypal';
 import { Sepa } from './sepa';
@@ -37,6 +38,7 @@ export const Payments: FC<PaymentsProps> = ({ price, subject, error }) => {
                 <>
                   <CreditCard price={price} subject={subject} />
                   <Sepa price={price} subject={subject} />
+                  <Bitcoin price={price} subject={subject} />
                   <PayPal price={price} subject={subject} />
                 </>
               )}

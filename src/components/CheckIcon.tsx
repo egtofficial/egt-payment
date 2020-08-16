@@ -5,7 +5,7 @@ export const CheckIcon = () => (
   <div className="flex-shrink-0">
     <FontAwesomeIcon
       icon={faCheck}
-      size="lg"
+      size="sm"
       className="h-6 w-6 text-green-500"
     />
   </div>

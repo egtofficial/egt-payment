@@ -9,3 +9,8 @@ export const getMember = (id: string) =>
       },
     },
   );
+
+export const getBTCPrice = () =>
+  fetch('https://api.coindesk.com/v1/bpi/currentprice/EUR.json')
+    .then((result) => result.json())
+    .then((json) => json.bpi.EUR);

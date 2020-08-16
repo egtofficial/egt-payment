@@ -33,7 +33,7 @@ export const CreditCard: FC<PaymentMethodProps> = ({ price, subject }) => {
   };
 
   return (
-    <div className="mx-auto max-w-md lg:mx-0 lg:max-w-none lg:col-span-4">
+    <div className="mx-auto max-w-md lg:mx-0 lg:max-w-none lg:col-span-3">
       <div className="h-full flex flex-col rounded-lg shadow-lg overflow-hidden lg:rounded-none lg:rounded-l-lg">
         <div className="flex-1 flex flex-col">
           <div className="bg-white px-6 py-10">
@@ -63,16 +63,14 @@ export const CreditCard: FC<PaymentMethodProps> = ({ price, subject }) => {
             <ul>
               <li className="mt-4 flex items-start">
                 <CheckIcon />
-                <p className="ml-3 text-base leading-6 font-medium text-gray-500">
+                <p className="ml-3 text-sm leading-6 font-medium text-gray-500">
                   Wir erhalten <strong>{formatPrice(price - tax)}</strong> nach
-                  Abzug der
-                  <br />
-                  Gebühren von <strong>{formatPrice(tax)}</strong>
+                  Gebührenabzug von <strong>{formatPrice(tax)}</strong>
                 </p>
               </li>
-              <li className="flex items-start">
+              <li className="mt-4 flex items-start">
                 <CheckIcon />
-                <p className="ml-3 text-base leading-6 font-medium text-gray-500">
+                <p className="ml-3 text-sm leading-6 font-medium text-gray-500">
                   Zahlvorgang in Echtzeit
                 </p>
               </li>
