@@ -28,6 +28,8 @@
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@mollie/api-client": "^3.2.3",
     "@tailwindcss/ui": "^0.5.0",
+    "@types/btoa": "^1.2.3",
+    "btoa": "^1.2.1",
     "clsx": "^1.1.1",
     "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.2.0",

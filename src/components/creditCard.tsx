@@ -25,7 +25,7 @@ export const CreditCard: FC<PaymentMethodProps> = ({ price, subject }) => {
     })
       .then((result) => result.json())
       .then((payment) => {
-        window.location.href = payment.checkout;
+        if (payment.checkout) window.location.href = payment.checkout;
       })
       .catch((err) => {
         console.error('Fehler!', err);

@@ -2,14 +2,35 @@ import { PaymentMethodProps } from '@@/types';
 import { faPaypal } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 
 import { formatPrice } from '../utils';
 import { CheckIcon } from './CheckIcon';
 
-export const PayPal: FC<PaymentMethodProps> = ({ price }) => {
+export const PayPal: FC<PaymentMethodProps> = ({ price, subject }) => {
+  const [fetching, setFetching] = useState(false);
   const tax = 0.35 + price * 0.0249;
-  const disabled = true; // price < 10;
+  const tooLow = price < 10;
+  const disabled = fetching || tooLow;
+
+  const onButtonClick = () => {
+    setFetching(true);
+    fetch('/api/payment', {
+      method: 'POST',
+      body: JSON.stringify({
+        method: 'paypal',
+        subject,
+        price,
+      }),
+    })
+      .then((result) => result.json())
+      .then((payment) => {
+        if (payment.checkout) window.location.href = payment.checkout;
+      })
+      .catch((err) => {
+        console.error('Fehler!', err);
+      });
+  };
 
   return (
     <div className="mt-10 mx-auto max-w-md lg:m-0 lg:max-w-none lg:col-span-3">
@@ -58,6 +79,7 @@ export const PayPal: FC<PaymentMethodProps> = ({ price }) => {
               <div className="rounded-lg shadow-md">
                 <button
                   type="button"
+                  onClick={onButtonClick}
                   disabled={disabled}
                   className={clsx(
                     'block w-full text-center rounded-lg border border-transparent bg-white px-6 py-3 text-base leading-6 font-medium ease-in-out duration-150',
@@ -67,7 +89,7 @@ export const PayPal: FC<PaymentMethodProps> = ({ price }) => {
                     },
                   )}
                 >
-                  {disabled ? 'Noch nicht möglich' : 'Bezahlen per PayPal'}
+                  {tooLow ? 'Nur bei Halbjahreszahlung' : 'Bezahlen per PayPal'}
                 </button>
               </div>
             </div>

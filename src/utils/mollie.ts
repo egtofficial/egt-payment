@@ -1,6 +1,6 @@
 import { createMollieClient } from '@mollie/api-client';
 
-export const initPayment = async (price: number, subject: string) => {
+export const initMolliePayment = async (price: number, subject: string) => {
   const mollieClient = createMollieClient({
     apiKey: process.env.MOLLIE_API_KEY,
   });
