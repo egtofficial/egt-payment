@@ -2,7 +2,7 @@
 
 This is the payment page for the membership fees of the association »Elysium Gaming Tübingen e.V.«.  
 It is built with Next.js and Tailwind.  
-It makes use of the [easyVerein API](https://easyverein.com/api/v1/), the [Mollie Node API](https://github.com/mollie/mollie-api-node) and will include Paypal in a later stage.
+It makes use of the [easyVerein Library](https://github.com/Fensterbank/easyverein), the [Mollie Node API](https://github.com/mollie/mollie-api-node) and PayPal.
 
 ## Getting Started
 

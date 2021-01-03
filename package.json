@@ -20,6 +20,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@babel/core": "^7.12.10",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/pro-light-svg-icons": "./vendor/fortawesome-pro-light-svg-icons-5.14.0.tgz",
@@ -30,6 +31,7 @@
     "@types/btoa": "^1.2.3",
     "btoa": "^1.2.1",
     "clsx": "^1.1.1",
+    "easyverein": "^0.1.1",
     "eslint": "^7.17.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-nextjs": "^1.0.6",
