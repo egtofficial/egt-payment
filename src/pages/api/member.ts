@@ -1,18 +1,16 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import { MemberData } from '@@/types';
-import { Client } from 'easyverein';
+import { setApiToken, getMember } from 'easyverein';
+
+setApiToken(process.env.EASYVEREIN_TOKEN);
 
 export default async (req, res) => {
   if (req.method === 'POST') {
-    const client = Client(process.env.EASYVEREIN_TOKEN);
     const body = JSON.parse(req.body);
-    const member = await client.getMember(body.member, [
-      'id',
-      'contactDetails{name, privateEmail}',
-      'email',
-      'membershipNumber',
-      'memberGroups',
-    ]);
+    const member = await getMember(
+      body.member,
+      '{id,contactDetails{name, privateEmail},email,membershipNumber,memberGroups}',
+    );
     if (
       member.contactDetails.privateEmail === body.mail ||
       member.email === body.mail
