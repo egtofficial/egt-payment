@@ -50,7 +50,9 @@ export default function Member() {
     !error &&
     memberData &&
     memberData.groups &&
-    memberData.groups.includes(5710218)
+    (memberData.groups as any).includes(
+      'https://easyverein.com/api/v1.2/member-group/5710218/',
+    )
   ) {
     subject = `Monatsbeitrag M${memberData.membershipNumber} ${member}`;
     price = 2;
@@ -58,7 +60,9 @@ export default function Member() {
     !error &&
     memberData &&
     memberData.groups &&
-    memberData.groups.includes(5710215)
+    (memberData.groups as any).includes(
+      'https://easyverein.com/api/v1.2/member-group/5710215/',
+    )
   ) {
     subject = `Halbjahresbeitrag M${memberData.membershipNumber} ${member}`;
     price = 10;
@@ -74,7 +78,7 @@ export default function Member() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-full relative">
+      <main className="relative w-full">
         <HeroSection
           name={memberData && memberData.name ? memberData.name : undefined}
         />
