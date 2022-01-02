@@ -27,6 +27,7 @@ export default function Member() {
         .then((result) => result.json())
         .then((data) => {
           if (data.message) {
+            // eslint-disable-next-line no-console
             console.error('Fehler!', data.message);
             setError(
               'Ungültiger Link oder ein anderer Fehler ist aufgetreten.',
@@ -36,6 +37,7 @@ export default function Member() {
           }
         })
         .catch((err) => {
+          // eslint-disable-next-line no-console
           console.error('Fehler!', err);
           setError('Ungültiger Link oder ein anderer Fehler ist aufgetreten.');
         });
@@ -46,28 +48,23 @@ export default function Member() {
   let subject;
 
   // We have to check the membership group hardcoded
-  if (
-    !error &&
-    memberData &&
-    memberData.groups &&
-    (memberData.groups as any).includes(
-      'https://easyverein.com/api/v1.2/member-group/5710218/',
-    )
-  ) {
+  const memberGroups =
+    !error && memberData
+      ? memberData.groups.map((g) => {
+          // FIXME: Wrong type from easyverein library?
+          const p = (g as any).split('/');
+          return p[p.length - 1];
+        })
+      : [];
+
+  if (memberGroups.includes('5710218')) {
     subject = `Monatsbeitrag M${memberData.membershipNumber} ${member}`;
     price = 2;
-  } else if (
-    !error &&
-    memberData &&
-    memberData.groups &&
-    (memberData.groups as any).includes(
-      'https://easyverein.com/api/v1.2/member-group/5710215/',
-    )
-  ) {
+  } else if (memberGroups.includes('5710215')) {
     subject = `Halbjahresbeitrag M${memberData.membershipNumber} ${member}`;
     price = 10;
   } else {
-    subject = `Halbjahresbeitrag ${member || ''}`;
+    subject = `Halbjahresbeitrag U${member || ''}`;
     price = 10;
   }
 
