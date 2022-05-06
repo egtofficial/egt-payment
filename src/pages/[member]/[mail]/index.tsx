@@ -63,6 +63,9 @@ export default function Member() {
   } else if (memberGroups.includes('5710215')) {
     subject = `Halbjahresbeitrag M${memberData.membershipNumber} ${member}`;
     price = 10;
+  } else if (memberGroups.includes('34960569')) {
+    subject = `Jahresbeitrag M${memberData.membershipNumber} ${member}`;
+    price = 20;
   } else {
     subject = `Halbjahresbeitrag U${member || ''}`;
     price = 10;
@@ -80,7 +83,9 @@ export default function Member() {
           name={memberData && memberData.name ? memberData.name : undefined}
         />
       </main>
-      <Payments price={price} subject={subject} error={error} />
+      {memberGroups.length > 0 && (
+        <Payments price={price} subject={subject} error={error} />
+      )}
 
       <Footer />
     </div>
