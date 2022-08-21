@@ -1,0 +1,43 @@
+name: Build and deploy in production
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: yarn --frozen-lockfile
+      - run: yarn build
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SERVER_SSH_KEY }}
+          ARGS: "-rltgoDzvO --exclude '.next/cache' --exclude '.git' --exclude '.github' --exclude '.env*' --delete"
+          SOURCE: "./"
+          REMOTE_HOST: 'egt.community'
+          REMOTE_USER: 'noderunner'
+          TARGET: '/var/node-apps/egt-payment'
+
+    env:
+      CI: true
+      NODE_ENV: 'production'
+      EASYVEREIN_TOKEN: ${{ secrets.EASYVEREIN_TOKEN }}
+      MOLLIE_API_KEY: ${{ secrets.MOLLIE_API_KEY }}
+      PP_HOST: 'https://api.paypal.com'
+      PP_CLIENT: ${{ secrets.PP_CLIENT }}
+      PP_SECRET: ${{ secrets.PP_SECRET }}
+
