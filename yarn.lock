@@ -1475,10 +1475,10 @@ domutils@^2.4.2:
     domelementtype "^2.0.1"
     domhandler "^4.0.0"
 
-easyverein@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/easyverein/-/easyverein-0.3.0.tgz#9dc5106ed2710b1cfbd474613a7a967a3b14c70f"
-  integrity sha512-Ur+24QLH6Fy+F2EDRLrY4G6UyaISxJIb9fyINE8tWFkZ75ZAxcarwW0nk5pwUNQjvveWTCEQQxyPrrmLJWgfqA==
+easyverein@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/easyverein/-/easyverein-0.4.0.tgz#31c207fecbc1f9b7b103ba193d68613548ca386c"
+  integrity sha512-epfIdE1ogtEA3HYF34iBLH+CGoXKiqgKr4SLCKm7P4ciuDQq7SGqa7FlifXhSG/eb28ziUHKu9fr4y1AtWRfPg==
   dependencies:
     node-fetch "^2.6.5"
     query-string "^7.0.1"
