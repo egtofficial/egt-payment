@@ -20,7 +20,8 @@
       "@@pages/*": ["./src/pages/*"],
       "@@utils/*": ["./src/utils/*"],
       "@@lib/*": ["./src/lib/*"]
-    }
+    },
+    "incremental": true
   },
   "exclude": ["node_modules"],
   "include": [
