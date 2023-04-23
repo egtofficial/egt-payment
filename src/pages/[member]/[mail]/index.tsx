@@ -2,6 +2,7 @@ import { Footer } from '@@/components/footer';
 import { HeroSection } from '@@/components/herosection';
 import { Payments } from '@@/components/payments';
 import { MemberData } from '@@/types';
+import { getFeeInfo } from '@@/utils';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
@@ -44,26 +45,7 @@ export default function Member() {
     }
   }, [member, mail]);
 
-  let price;
-  let subject;
-
-  // We have to check the membership group hardcoded
-  const memberGroups =
-    !error && memberData ? memberData.groups.map((i) => i.id) : [];
-
-  if (memberGroups.includes(5710218)) {
-    subject = `Monatsbeitrag M${memberData.membershipNumber} ${member}`;
-    price = 2;
-  } else if (memberGroups.includes(5710215)) {
-    subject = `Halbjahresbeitrag M${memberData.membershipNumber} ${member}`;
-    price = 10;
-  } else if (memberGroups.includes(34960569)) {
-    subject = `Jahresbeitrag M${memberData.membershipNumber} ${member}`;
-    price = 20;
-  } else {
-    subject = `Halbjahresbeitrag U${member || ''}`;
-    price = 10;
-  }
+  const fee = getFeeInfo(memberData);
 
   return (
     <div className={`${styles.container} w-full h-full pattern-grid-lg`}>
@@ -77,8 +59,8 @@ export default function Member() {
           name={memberData && memberData.name ? memberData.name : undefined}
         />
       </main>
-      {memberGroups.length > 0 && (
-        <Payments price={price} subject={subject} error={error} />
+      {fee && (
+        <Payments price={fee.price} subject={fee.subject} error={error} />
       )}
 
       <Footer />

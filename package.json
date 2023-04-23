@@ -1,6 +1,6 @@
 {
   "name": "egt-payment",
-  "version": "1.1.4",
+  "version": "1.2.0",
   "private": true,
   "description": "Payment page for Elysium Gaming Tübingen e.V.",
   "keywords": [
@@ -34,6 +34,7 @@
     "easyverein": "^0.5.0",
     "eslint": "^7.17.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-next": "^13.3.1",
     "eslint-config-nextjs": "^1.0.6",
     "eslint-config-prettier": "^7.1.0",
     "eslint-import-resolver-babel-module": "^5.2.0",
@@ -46,7 +47,7 @@
     "husky": "^4.3.6",
     "isomorphic-unfetch": "^3.1.0",
     "lint-staged": "^10.5.3",
-    "next": "^12.2.5",
+    "next": "^13.3.1",
     "pattern.css": "^1.0.0",
     "postcss": "^8.1.14",
     "postcss-flexbugs-fixes": "^5.0.2",
@@ -57,7 +58,12 @@
     "react-dom": "^18.2.0",
     "sass": "^1.32.0",
     "tailwindcss": "^2.0.2",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "@types/node": "^14.14.19",
+    "@types/react": "^18.0.38",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "babel-plugin-module-resolver": "^4.1.0"
   },
   "husky": {
     "hooks": {
@@ -69,12 +75,5 @@
       "eslint --cache",
       "pretty-quick --staged"
     ]
-  },
-  "devDependencies": {
-    "@types/node": "^14.14.19",
-    "@types/react": "^18.0.38",
-    "@typescript-eslint/eslint-plugin": "^4.11.1",
-    "@typescript-eslint/parser": "^4.11.1",
-    "babel-plugin-module-resolver": "^4.1.0"
   }
 }

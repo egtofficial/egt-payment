@@ -28,6 +28,7 @@ export const CreditCard: FC<PaymentMethodProps> = ({ price, subject }) => {
         if (payment.checkout) window.location.href = payment.checkout;
       })
       .catch((err) => {
+        // eslint-disable-next-line no-console
         console.error('Fehler!', err);
       });
   };
