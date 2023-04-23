@@ -29,6 +29,7 @@ export default function PayPalConfirmation() {
           }
         })
         .catch((err) => {
+          // eslint-disable-next-line no-console
           console.error('Fehler!', err);
         });
     }
@@ -41,7 +42,7 @@ export default function PayPalConfirmation() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-full relative">
+      <main className="relative w-full">
         {error ? <ErrorSection errorMessage={error} /> : <ValidateSection />}
       </main>
     </div>

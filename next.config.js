@@ -1,3 +1,1 @@
-module.exports = {
-  future: {},
-};
+module.exports = {};
