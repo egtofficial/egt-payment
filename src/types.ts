@@ -5,6 +5,6 @@ export interface PaymentMethodProps {
 
 export interface MemberData {
   membershipNumber: string;
-  groups: number[];
+  groups: { id: number; paymentAmount: string }[];
   name: string;
 }

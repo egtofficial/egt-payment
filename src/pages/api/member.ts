@@ -9,16 +9,16 @@ export default async (req, res) => {
     const body = JSON.parse(req.body);
     const member = await getMember(
       body.member,
-      '{id,contactDetails{name, privateEmail},email,membershipNumber,memberGroups}',
+      '{id,contactDetails{name, privateEmail},emailOrUserName,membershipNumber,memberGroups{id,paymentAmount}}',
     );
     if (
       member.contactDetails.privateEmail === body.mail ||
-      member.email === body.mail
+      member.emailOrUserName === body.mail
     ) {
       res.statusCode = 200;
       res.json({
         membershipNumber: member.membershipNumber,
-        groups: member.memberGroups,
+        groups: member.memberGroups as any,
         name: member.contactDetails.name,
       } as MemberData);
     } else {

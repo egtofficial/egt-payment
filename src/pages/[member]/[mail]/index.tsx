@@ -49,21 +49,15 @@ export default function Member() {
 
   // We have to check the membership group hardcoded
   const memberGroups =
-    !error && memberData
-      ? memberData.groups.map((g) => {
-          // FIXME: Wrong type from easyverein library?
-          const p = (g as any).split('/');
-          return p[p.length - 1];
-        })
-      : [];
+    !error && memberData ? memberData.groups.map((i) => i.id) : [];
 
-  if (memberGroups.includes('5710218')) {
+  if (memberGroups.includes(5710218)) {
     subject = `Monatsbeitrag M${memberData.membershipNumber} ${member}`;
     price = 2;
-  } else if (memberGroups.includes('5710215')) {
+  } else if (memberGroups.includes(5710215)) {
     subject = `Halbjahresbeitrag M${memberData.membershipNumber} ${member}`;
     price = 10;
-  } else if (memberGroups.includes('34960569')) {
+  } else if (memberGroups.includes(34960569)) {
     subject = `Jahresbeitrag M${memberData.membershipNumber} ${member}`;
     price = 20;
   } else {
