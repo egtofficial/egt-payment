@@ -1136,10 +1136,10 @@ domutils@^2.4.2:
     domelementtype "^2.0.1"
     domhandler "^4.0.0"
 
-easyverein@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/easyverein/-/easyverein-0.4.0.tgz#31c207fecbc1f9b7b103ba193d68613548ca386c"
-  integrity sha512-epfIdE1ogtEA3HYF34iBLH+CGoXKiqgKr4SLCKm7P4ciuDQq7SGqa7FlifXhSG/eb28ziUHKu9fr4y1AtWRfPg==
+easyverein@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/easyverein/-/easyverein-0.5.0.tgz#56003f0870d973b6c56e34cf505213f75aecc0a6"
+  integrity sha512-G+dTW0BQD96+GMRApKhqtVy2fMq/tLuqwfZlnxXkxBEdqbBBDt9JtEHu69mUFvl8hZO5V9kDpt4F2vq1TUL2nQ==
   dependencies:
     node-fetch "^2.6.5"
     query-string "^7.0.1"
